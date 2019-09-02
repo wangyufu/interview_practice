@@ -14,6 +14,14 @@ class SLinkedList:
         self.headval = Node(newdata)
         self.headval.nextval = old_node
 
+    def middle_add(self, index, newdata):
+        if not index:
+            print("there is no such node.")
+            return
+        newnode = Node(newdata)
+        newnode.nextval = index.nextval
+        index.nextval = newnode
+
     # 在链表末尾添加一个新的node
     def append(self, newdata):
         NewNode = Node(newdata)
@@ -50,4 +58,7 @@ e2.nextval = e3
 #结果为e3所代表的值Wed
 li.append('Thu')
 li.add_left('A')
+# li.show()
+
+li.middle_add(li.headval.nextval.nextval, "middle")
 li.show()
